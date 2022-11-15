@@ -31,11 +31,13 @@ function scrollActive(){
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
+        let nav = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+        if(nav){
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                nav.classList.add('active')
+            }else{
+                nav.classList.remove('active')
+            }
         }
     })
 }
@@ -54,3 +56,4 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+

@@ -8,7 +8,7 @@
   /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
   /* HSL color mode */
   --hue-color: 224;
-  --first-color: hsl(var(--hue-color), 89%, 60%);
+  --first-color: hsl(var(--hue-color), 14%, 50%);
   --second-color: hsl(var(--hue-color), 56%, 12%);
   /*===== Fuente y tipografia =====*/
   --body-font: 'Poppins', sans-serif;
@@ -69,6 +69,14 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+img.architecture {
+  display: block;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border: .5px solid var(--second-color);
 }
 
 /*===== CLASS CSS ===== */
@@ -235,7 +243,7 @@ img {
 }
 
 .home__blob-img {
-  width: 360px;
+  width: 460px;
 }
 
 /*BUTTONS*/
@@ -319,20 +327,28 @@ img {
   z-index: var(--z-back);
 }
 
-.skills__html {
+.skills__95 {
   width: 95%;
 }
 
-.skills__css {
+.skills__85 {
   width: 85%;
 }
 
-.skills__js {
-  width: 65%;
+.skills__75 {
+  width: 75%;
 }
-
-.skills__ux {
-  width: 85%;
+.skills__65 {
+  width: 75%;
+}
+.skills__55 {
+  width: 55%;
+}
+.skills__45 {
+  width: 45%;
+}
+.skills__35 {
+  width: 35%;
 }
 
 .skills__img {
@@ -526,5 +542,100 @@ img {
   }
   .home__img {
     width: 450px;
+  }
+}
+
+/* [Object] Modal
+ * =============================== */
+ .modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0,0,0, .9);
+  transition: opacity .25s ease;
+  z-index: 101;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked + .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked + .modal .modal__inner {
+  top: 0;
+}
+
+.modal__inner {
+  transition: top .25s ease;
+  position: absolute;
+  top: -20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  margin: auto;
+  overflow: auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1em 2em;
+  height: 95%;
+}
+
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: #aaa;
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+	
+  .modal__inner {
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
   }
 }
